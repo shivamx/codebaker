@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    
+    <title>Online COmpiler</title>
+
+  </head>
+
+  <body>
+  	{% csrf_token %}
+
+  	<h4>Onilne Compiler</h4>    
+  	<!--
+  	<select id="dropDownId">
+  	<option value="C" name="C">C</option>
+  	<option value="CPP" name="C++" >C++</option>
+  	<option value="CPP11" name = "C++11" >C++11</option>
+  	<option value="CLOJURE" name = "Clojure" >Clojure</option>
+  	<option value="CSHARP" name="C#">C#</option>
+  	<option value="JAVA" name="Java">Java</option>
+  	<option value="JAVASCRIPT" name="Javascript">Javascript</option>
+  	<option value="HASKELL" name="Haskell">Haskell</option>
+  	<option value="PERL" name="Perl">Perl</option>
+  	<option value="PHP" name="Php">Php</option>
+  	<option value="PYTHON" name="Python">Python</option>
+  	<option value="RUBY" name ="Ruby">Ruby</option>
+	</select> -->
+
+
+
+
+	<br/>
+
+  	<form action="" method="post"> {% csrf_token %}
+    {% for field in form %}
+    {{ field }}<br/>
+	{% endfor %}
+    <input type="submit" value="Compile and Run" />
+	</form>
+
+	<script>
+		$(document).ready(function(){ 
+  			
+  			$(document).ready(function() {
+        $("#input_check").click(function() {
+            if($('#input_check:checked').length) {
+                $("#input_box").show();
+            } else {
+                $("#input_box").hide();
+            }
+        });
+
+		});
+	</script>
+ 
+    
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="{% static "js/compilr-jquery.js" %}"></script>
+   <script type="text/javascript" src= "{% static "codemirror/lib/codemirror.js" %}"></script>
+  </body>
+</html>
+
+
+
+

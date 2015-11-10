@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    
+    <title>Online COmpiler</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </head>
+
+  <body>
+  	{% csrf_token %}
+
+  	<h4>Onilne Compiler</h4>    
+
+  	<b>Select Language</b><br/>
+    <form action="" method="post"> {% csrf_token %}
+  	
+    <select id="dropDownId" name='lang'>
+    <option value="C" >C</option>
+  	 <option value="CPP"  >C++</option>
+  	 <option value="CPP11"  >C++11</option>
+  	 <option value="CLOJURE"  >Clojure</option>
+  	 <option value="CSHARP" >C#</option>
+  	 <option value="JAVA" >Java</option>
+  	 <option value="JAVASCRIPT" >Javascript</option>
+  	 <option value="HASKELL" >Haskell</option>
+  	 <option value="PERL" >Perl</option>
+  	 <option value="PHP">Php</option>
+  	 <option value="PYTHON" >Python</option>
+  	 <option value="RUBY" >Ruby</option>
+	   </select> 
+
+	 <br/>
+    <b>Source Code:</b><br/>
+    <textarea  cols=100 rows=30 name="source"> </textarea><br/>
+    
+    <input type="checkbox" id='input_check'>Provide input<br/> 
+
+     <textarea  cols=100 rows=10 id='input_box' name='iinput'> </textarea><br/>
+   
+    <input type="submit" value="Compile and Run"  />
+	</form>
+
+	<script>
+  			$(document).ready(function(){
+
+          $("#input_box").hide();
+
+        $("#input_check").click(function() {
+            if($('#input_check:checked').length) {
+                $("#input_box").show();
+            } else {
+                $("#input_box").hide();
+            }
+        });
+
+
+
+    
+});
+
+</script>
+     
+
+   <script src="{% static 'js/jquery-1.11.3.js' %}"></script>
+
+  </body>
+</html>
+
+
+
+
