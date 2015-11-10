@@ -27,7 +27,7 @@ def index(request):
 		#print r.json()
 	 	#return HttpResponse( r.json() )
 		print 'Raw Data: "%s"' % request.body   
-		return HttpResponse("OK")
+		return HttpResponse(r)
 		
 	return render(request, 'compilr/index.html')
 
