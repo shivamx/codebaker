@@ -24,8 +24,10 @@ def index(request):
 		}
 
 		r = requests.post(RUN_URL, data=data)
-		print r.json()
-	 	return HttpResponse( r.json() )
+		#print r.json()
+	 	#return HttpResponse( r.json() )
+		print 'Raw Data: "%s"' % request.body   
+		return HttpResponse("OK")
 		
 	return render(request, 'compilr/index.html')
 
