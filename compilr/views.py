@@ -1,27 +1,32 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import NameForm
+import requests
 
 
 def index(request):
 
 	if request.method == 'POST':
-		lang = request.POST['lang']
-		source = request.POST['source']
-		iinput = request.POST['iinput']
-		#val = request.POST
-		#val = request.REQUEST["source"] 
-	 	return HttpResponse( (lang + source + iinput) )
-		# 	# create a form instance and populate it with data from the request:
-		# 	form = NameForm(request.POST)
-		# 	# check whether it's valid:
-		# 	if form.is_valid():
-		# 		code =form.cleaned_data['code']
-		# 		iinput = form.cleaned_data['iinput']	
-		# 		return render(request, 'compilr/index.html', {'form': form ,'nname' : nname } )
-	
-		# form = NameForm()
+		#lang = request.POST['lang']
+		#source = request.POST['source']
+		#iinput = request.POST['iinput']
+		RUN_URL = u'https://api.hackerearth.com/v3/code/run/'
+		CLIENT_SECRET = '496c2cb7d30d44718e6ecf2b096d02f62112667f'
+		source = "print 'Hello World'"
 
+		data = {
+    	'client_secret': CLIENT_SECRET,
+    	'async': 0,
+    	'source': source,
+    	'lang': "PYTHON",
+    	'time_limit': 5,
+    	'memory_limit': 262144,
+		}
+
+		r = requests.post(RUN_URL, data=data)
+		print r.json()
+	 	return HttpResponse( 'Hi' )
+		
 	return render(request, 'compilr/index.html')
 
 # Create your views here.
