@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import NameForm
+import json
 import requests
 
 
@@ -25,6 +26,8 @@ def index(request):
 		}
 
 		r = requests.post(RUN_URL, data=data)
+		r = json.loads(r)
+
 		#print r.json()
 	 	#return HttpResponse( r.json() )
 		return HttpResponse(r)
