@@ -3,7 +3,7 @@
 <html>
   <head>
     
-    <title>Online COmpiler</title>
+    <title>Online Compiler</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <style>
@@ -14,7 +14,7 @@
   <body>
   	{% csrf_token %}
 
-  	<h4>Onilne Compiler</h4>    
+  	<b>Onilne Compiler</b><br/>    
     <div>
   	<b>Select Language</b><br/>
     <form action="" method="post"> {% csrf_token %}
@@ -40,19 +40,19 @@
     
     <input type="checkbox" id='input_check'>Provide input<br/> 
 
-     <textarea  cols=100 rows=10 id='input_box' name='iinput'> </textarea><br/>
+     <textarea  cols=100 rows=8 id='input_box' name='iinput'> </textarea><br/>
    
     <input type="submit" value="Compile and Run"  />
 	</form>
 
     {% if output_box %}
 
-      <h4>output</h4> {{ooutput}} <br/>
-      <h4>iinput</h4> {{iinput}} <br/>
+      <h4>output</h4> {{ooutput}} <br/> <hr/>
+      <h4>input</h4> {{iinput}} <br/><hr/>
       
       <table>
-      <tr><th>Time(Sec)</th><th>Memory(KB)</th><th>Status</th><th>Status Detail</th>
-      <tr><tr>{{time_used}}</tr><tr>{{mem_used}}</tr><tr>{{status}}</tr><tr>{{status_detail}}</tr>
+      <tr><th>Time(Sec)</th><th>Memory(KB)</th><th>Status</th><th>Status Detail</th></tr>
+      <tr><td>{{time_used}}</td><td>{{mem_used}}</td><td>{{status}}</td><td>{{status_detail}}</td>
       </table>
 
     {% endif %}
