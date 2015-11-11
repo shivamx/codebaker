@@ -26,11 +26,12 @@ def index(request):
 		}
 
 		r = requests.post(RUN_URL, data=data)
-		r = json.loads(r)
+		resp = r.read()
+		resp = json.loads(resp)
 
 		#print r.json()
 	 	#return HttpResponse( r.json() )
-		return HttpResponse(r)
+		return HttpResponse(resp['run_status'])
 		
 	return render(request, 'compilr/index.html')
 
