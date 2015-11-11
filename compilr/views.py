@@ -40,7 +40,7 @@ def index(request):
 		#print r.json()
 	 	#return HttpResponse( r.json() )
 		return render(request, 'compilr/index.html', 
-			{'status':status, 'ooutput':ooutput, 'time_used':time_used, 'status_detail':status_detail, 'mem_used':mem_used, 'compile_status':compile_status, 'output_box':output_box})
+			{'status':status, 'ooutput':ooutput, 'time_used':time_used, 'status_detail':status_detail, 'mem_used':mem_used, 'iinput':iinput, 'output_box':output_box})
 		
 	return render(request, 'compilr/index.html')
 

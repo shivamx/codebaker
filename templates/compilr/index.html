@@ -5,13 +5,17 @@
     
     <title>Online COmpiler</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <style>
+    body{background-color:#f3f3ed;}
+    </style>
   </head>
 
   <body>
   	{% csrf_token %}
 
   	<h4>Onilne Compiler</h4>    
-
+    <div>
   	<b>Select Language</b><br/>
     <form action="" method="post"> {% csrf_token %}
   	
@@ -43,12 +47,17 @@
 
     {% if output_box %}
 
-      <div> <h4>output</h4></div>
-      {{status}} <br/> {{ooutput}} <br/> {{time_used}} <br/> {{status_detail}} <br/> {{mem_used}} 
+      <h4>output</h4> {{ooutput}} <br/>
+      <h4>iinput</h4> {{iinput}} <br/>
+      
+      <table>
+      <tr><th>Time(Sec)</th><th>Memory(KB)</th><th>Status</th><th>Status Detail</th>
+      <tr><tr>{{time_used}}</tr><tr>{{mem_used}}</tr><tr>{{status}}</tr><tr>{{status_detail}}</tr>
+      </table>
 
     {% endif %}
  
-
+  </div>
 	<script>
   			$(document).ready(function(){
 
