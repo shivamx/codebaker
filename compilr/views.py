@@ -26,12 +26,20 @@ def index(request):
 		}
 
 		r = requests.post(RUN_URL, data=data).json()
-		resp = r['run_status']['status']
+		status = r['run_status']['status']
+		ooutput = r['run_status']['output_status']
+		time_used = r['run_status']['time_used']
+		status_detail = r['run_status']['status_detail']
+		mem_used = r['run_status']['memory_used']
+		compile_status = r['compile_status']
+		output_box = 1
+
 		
 
 		#print r.json()
 	 	#return HttpResponse( r.json() )
-		return HttpResponse(resp)
+		return render(request, 'compilr/index.html', 
+			{'status':status, 'ooutput':ooutput, 'time_used':time_used, 'status_detail':status_detail, 'mem_used':mem_used, 'compile_status':compile_status, 'output_box':output_box})
 		
 	return render(request, 'compilr/index.html')
 

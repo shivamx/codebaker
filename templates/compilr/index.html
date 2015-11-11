@@ -41,9 +41,12 @@
     <input type="submit" value="Compile and Run"  />
 	</form>
 
-    <div> <h4>output</h4>
+    {% if output_box %}
 
-    </div>
+      <div> <h4>output</h4></div>
+      {{status}} <br/> {{ooutput}} <br/> {{time_used}} <br/> {{status_detail}} <br/> {{mem_used}} <br/> {{complie_status}}
+      
+    {% endif %}
  
 
 	<script>
