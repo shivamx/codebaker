@@ -13,7 +13,7 @@ def index(request):
 		#iinput = request.POST['iinput']
 		RUN_URL = u'https://api.hackerearth.com/v3/code/run/'
 		CLIENT_SECRET = '496c2cb7d30d44718e6ecf2b096d02f62112667f'
-		source = "print int(rawinput())"
+		source = "print int(raw_input())"
 
 		data = {
     	'client_secret': CLIENT_SECRET,
@@ -25,8 +25,8 @@ def index(request):
     	'memory_limit': 262144,
 		}
 
-		r = requests.post(RUN_URL, data=data)
-		resp = r.run_status
+		r = requests.post(RUN_URL, data=data).json()
+		resp = r['run_status']['status']
 		
 
 		#print r.json()
