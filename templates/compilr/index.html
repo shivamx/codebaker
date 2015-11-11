@@ -8,14 +8,19 @@
 
     <style>
     body{background-color:#f3f3ed;}
+    #main{
+      width:900px;
+      margin:0 auto;
+    }
+
     </style>
   </head>
 
   <body>
   	{% csrf_token %}
 
-  	<b>Onilne Compiler</b><br/>    
-    <div>
+  	<p style="text-align:center"><b>Onilne Compiler</b></p>    
+    <div id='main'>
   	<b>Select Language</b><br/>
     <form action="" method="post"> {% csrf_token %}
   	
@@ -58,6 +63,8 @@
     {% endif %}
  
   </div>
+
+
 	<script>
   			$(document).ready(function(){
 
