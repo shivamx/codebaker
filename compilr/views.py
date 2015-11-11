@@ -28,7 +28,7 @@ def index(request):
 
 		r = requests.post(RUN_URL, data=data).json()
 		status = r['run_status']['status']
-		ooutput = r['run_status']['output_html']
+		ooutput = r['run_status']['output']
 		time_used = r['run_status']['time_used']
 		status_detail = r['run_status']['status_detail']
 		mem_used = r['run_status']['memory_used']
